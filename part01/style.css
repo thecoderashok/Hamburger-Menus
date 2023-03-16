@@ -1,0 +1,67 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  height: 100vh;
+  background: rgb(23, 23, 23);
+}
+
+.menu{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgb(45, 45, 45);
+  left: 50%; top: 50%;
+  transform: translate(-50% ,-50%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu .bar {
+  position: relative;
+  width: 80%;
+  height: 5px;
+  background: rgb(244, 244, 244);
+  margin: 8% 0;
+  border-radius: 10px;
+  pointer-events: none;
+  transition: .5s cubic-bezier(0.85, 0.55, 0.32, 1.2);
+}
+
+.bar.first{
+  transform-origin: left top;
+}
+.bar.third{
+  transform-origin: left bottom;
+}
+
+.menu label{
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* #menu-checkbox is the ID name of input(type: checkbox) */
+.menu #menu-checkbox{
+  display: none;
+}
+
+#menu-checkbox:checked ~ .bar.first {
+   transform: translateX(16%) translateY(-6px) rotate(45deg);
+}
+#menu-checkbox:checked ~ .bar.second {
+   transform: translateX(20%);
+   opacity: 0;
+}
+#menu-checkbox:checked ~ .bar.third {
+  transform: translateX(16%) translateY(7.5px) rotate(-45deg);
+}
